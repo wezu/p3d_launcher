@@ -438,7 +438,7 @@ class Launcher (DirectObject):
                         self.update_label['text']+=self.setup_data['basic']['msg']['unzip']
                         self.renderSomeFrames(8)
                         with ZipFile(last_file) as zf:
-                            zf.extractall(path)   
+                            zf.extractall(Filename(path).toOsSpecific())   
                         #remove zero sized files
                         self.update_label['text']+=self.setup_data['basic']['msg']['clean_up']
                         self.renderSomeFrames(8)                                               
