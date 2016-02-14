@@ -6,7 +6,7 @@ import ast
 from simpleeval import SimpleEval
 import json
 from direct.stdpy.file import listdir, exists
-from zipfile import ZipFile, is_zipfile #2.7.4+ bugfree version
+from my_zipfile import ZipFile, is_zipfile #2.7.4+ bugfree version
 import os
 
 #Helper functions
