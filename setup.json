@@ -99,7 +99,7 @@
         "aa":{"OFF":"None", "FXAA":"fxaa","SMAA":"smaa","CMAA":"cmaa","CSAA":"csaa","TXAA":"txaa","MSAAx2":"msaa2", "MSAAx4":"msaa4","MSAAx8":"msaa8", "MSAAx16":"msaa16"},
         "shadow":{"OFF":"None", "Hard shadows":"hard", "SSSSM":"ssssm", "VSM":"vsm", "PCF":"pcf", "Volume":"vol"},
         "filter":{"OFF":"None", "Bloom":"bloom", "HDR":"hdr"},        
-        "difficulty":{"Easy":1, "Normal":2, "Hard":3, "Nightmare":4, "Hell":5, "Pls Stahp!":6, "Nope, Nope, Nope":7},
+        "difficulty":{"Easy":"1", "Normal":"2", "Hard":"3", "Nightmare":"4", "Hell":"5", "Pls Stahp!":"6", "Nope, Nope, Nope":"7"},
         "autosave":{ "Yes":"True", "No":"False"},
         "subtitles":{ "Yes":"True", "No":"False"}
         }
