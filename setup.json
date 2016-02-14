@@ -1,0 +1,106 @@
+{
+    "basic": {
+        "window_size": [512,256],
+        "config_file": "autoconfig.prc",
+        "update_url": "https://raw.githubusercontent.com/wezu/p3d_launcher/master/update.json",
+        "background": "gui/luncher.png",
+        "title":"Game Launcher",
+        "undecorated":0,
+        "msg":{"new_key":"Press a new key for:\n{0}\nThe current key is: ","ok":"OK","loading":"Loading...","wait":"Please wait...", "collect":"Collecting updates...", "download_error":"\nERROR DOWNLOADING FILES!", "download_ok":"\nDownloaded ", "read_error":"\nERROR READING FILES!", "unzip":"\nExtracting files...", "clean_up":"\nCleaning up...", "done":"\nUpdate done!"}
+        },
+    "style": {
+        "default": {"img": "gui/big_button.png","text_align": "center","text_color": [1,1,1,1],"text_offset": [0,-5],"text_size": 24,"font": "gui/YanoneKaffeesatz-Regular.otf","size": [256,32]},
+        "big_button": {"img": "gui/big_button.png","text_align": "center","text_color": [1,1,1,1],"text_offset": [0,-5],"text_size": 24,"font": "gui/YanoneKaffeesatz-Regular.otf","size": [256,32]},
+        "small_button": {"img": "gui/small_button.png","text_align": "center","text_color": [1,1,1,1],"text_offset": [0,-4],"text_size": 20,"font": "gui/YanoneKaffeesatz-Regular.otf","size": [128,32]},
+        "small_txt_button": {"img": "gui/small_button.png","text_align": "center","text_color": [1,1,1,1],"text_offset": [0,-3],"text_size": 16,"font": "gui/YanoneKaffeesatz-Regular.otf","size": [128,32]},
+        "tab_button": {"img": "gui/tab_button.png","text_align": "center","text_color": [1,1,1,1],"text_offset": [0,-4],"text_size": 20,"font": "gui/YanoneKaffeesatz-Regular.otf","size": [128,32]},
+        "tab_selected": {"img": "gui/tab_selected.png","text_align": "center","text_color": [1,1,1,1],"text_offset": [0,-4],"text_size": 20,"font": "gui/YanoneKaffeesatz-Regular.otf","size": [128,32]},
+        "label": {"img": "gui/label.png","text_align": "center","text_color": [1,1,1,1],"text_offset": [0,-6],"text_size": 24,"font": "gui/YanoneKaffeesatz-Regular.otf","size": [128,32]},
+        "wait": {"img": "gui/label.png","text_align": "center","text_color": [1,1,1,1],"text_offset": [0,-6],"text_size": 24,"font": "gui/YanoneKaffeesatz-Regular.otf","size": [128,32]},
+        "loading": {"img": "gui/label.png","text_align": "center","text_color": [1,1,1,1],"text_offset": [0,-120],"text_size": 80,"font": "gui/YanoneKaffeesatz-Regular.otf","size": [128,32]},
+        "key_input": {"img": "gui/label.png","text_align": "center","text_color": [1,1,1,1],"text_offset": [0,-140],"text_size": 60,"font": "gui/YanoneKaffeesatz-Regular.otf","size": [128,32]},
+        "select": {"img": "gui/small_button.png","text_align": "center","text_color": [1,1,1,1],"text_offset": [0,-3],"text_size": 16,"font": "gui/YanoneKaffeesatz-Regular.otf","size": [128,32]},
+        "slider": {"thumb_img": "gui/thumb.png","thumb_size":[16,32], "img":"gui/slider.png","size": [256,16]}
+        },        
+    "buttons": [
+            {"Start Game": {"style": "big_button","pos": [224,16],"func": "startGame()"},
+            "Exit": {"style": "big_button","pos": [224,208],"func": "exitGame()"},
+            "Update": {"style": "big_button","pos": [224,80],"func": "updateGame('Please wait...')"},
+            "Configure": {"style": "big_button","pos": [224,144],"func": "toggleButtonGroup(1)"}
+            },
+            {"Graphics": {"style": "tab_selected","pos": [0,0]},
+            "Sound": {"style": "tab_button","pos": [128,0],"func": "toggleButtonGroup(2)"},
+            "Keys": {"style": "tab_button","pos": [256,0],"func": "toggleButtonGroup(3)"},
+            "Gameplay": {"style": "tab_button","pos": [384,0],"func": "toggleButtonGroup(4)"},            
+            "Cancel": {"style": "small_button","pos": [224,208],"func": "toggleButtonGroup(0)"},
+            "Save": {"style": "small_button","pos": [368,208],"func": "saveConfig()"},
+            "Resolution:": {"style": "big_button","pos": [128,40],"select": "win-size"},
+            "Fullscreen:": {"style": "big_button","pos": [128,72],"select": "fullscreen"},
+            "Anti-aliasing:": {"style": "big_button","pos": [128,104],"select": "aa"}, 
+            "Shadows:": {"style": "big_button","pos": [128,136],"select": "shadow"},
+            "Post-process:": {"style": "big_button","pos": [128,168],"select": "filter"}
+            },
+            {"Graphics": {"style": "tab_button","pos": [0,0],"func": "toggleButtonGroup(1)"},
+            "Sound": {"style": "tab_selected","pos": [128,0]},
+            "Keys": {"style": "tab_button","pos": [256,0],"func": "toggleButtonGroup(3)"},
+            "Gameplay": {"style": "tab_button","pos": [384,0],"func": "toggleButtonGroup(4)"},            
+            "Cancel": {"style": "small_button","pos": [224,208],"func": "toggleButtonGroup(0)"},
+            "Save": {"style": "small_button","pos": [368,208],"func": "saveConfig()"},
+            "Master Volume:": {"style": "big_button","pos": [128,44],"slide": "master-volume"},
+            "Sound Volume:": {"style": "big_button","pos": [128,84],"slide": "sound-volume"},
+            "Music Volume:": {"style": "big_button","pos": [128,124],"slide": "music-volume"},
+            "Voice Volume:": {"style": "big_button","pos": [128,164],"slide": "voice-volume"}
+            },            
+            {"Graphics": {"style": "tab_button","pos": [0,0],"func": "toggleButtonGroup(1)"},
+            "Sound": {"style": "tab_button","pos": [128,0],"func": "toggleButtonGroup(2)"},
+            "Keys": {"style": "tab_selected","pos": [256,0]},
+            "Gameplay": {"style": "tab_button","pos": [384,0],"func": "toggleButtonGroup(4)"},            
+            "Cancel": {"style": "small_button","pos": [224,208],"func": "toggleButtonGroup(0)"},
+            "Save": {"style": "small_button","pos": [368,208],"func": "saveConfig()"},
+            "Forward ": {"style": "small_txt_button","pos": [96,48],"key": "key-forward"},
+            "Back ": {"style": "small_txt_button","pos": [96,80],"key": "key-back"},
+            "Left ": {"style": "small_txt_button","pos": [96,112],"key": "key-left"},
+            "Right ": {"style": "small_txt_button","pos": [96,144],"key": "key-right"},
+            "Jump ": {"style": "small_txt_button","pos": [288,48],"key": "key-jump"},
+            "Fire ": {"style": "small_txt_button","pos": [288,80],"key": "key-fire"},
+            "Quicksave ": {"style": "small_txt_button","pos": [288,112],"key": "key-save"},
+            "Quickload ": {"style": "small_txt_button","pos": [288,144],"key": "key-load"}            
+            },            
+            {"Graphics": {"style": "tab_button","pos": [0,0],"func": "toggleButtonGroup(1)"},
+            "Sound": {"style": "tab_button","pos": [128,0],"func": "toggleButtonGroup(2)"},
+            "Keys": {"style": "tab_button","pos": [256,0],"func": "toggleButtonGroup(3)"},
+            "Gameplay": {"style": "tab_selected","pos": [384,0]},
+            "Cancel": {"style": "small_button","pos": [224,208],"func": "toggleButtonGroup(0)"},
+            "Save": {"style": "small_button","pos": [368,208],"func": "saveConfig()"},
+            "Difficulty:": {"style": "big_button","pos": [128,48],"select": "difficulty"},
+            "Autosave:": {"style": "big_button","pos": [128,96],"select": "autosave"},
+            "Subtitles:": {"style": "big_button","pos": [128,144],"select": "subtitles"}
+            }
+            ],
+    "slide": {
+            "master-volume":{"min":0, "max":100, "default":100, "round":0},
+            "sound-volume":{"min":0, "max":100, "default":80, "round":0},
+            "music-volume":{"min":0, "max":100, "default":50, "round":0},
+            "voice-volume":{"min":0, "max":100, "default":100, "round":0}
+            },
+    "key": {
+            "key-forward":"w",
+            "key-back":"s",
+            "key-left":"a",
+            "key-right":"d",
+            "key-jump":"space",
+            "key-fire":"mouse1",
+            "key-save":"f5",
+            "key-load":"f8"
+            },
+    "select": {
+        "win-size":{"1920x1200": "1920 1200", "1600x900": "1600 900", "2560x2048": "2560 2048", "1800x1440": "1800 1440", "800x480": "800 480", "854x480": "854 480", "1360x768": "1360 768", "1680x1050": "1680 1050", "1920x1080": "1920 1080", "1440x900": "1440 900", "1024x600": "1024 600", "1366x768": "1366 768", "1440x1080": "1440 1080", "1024x768": "1024 768", "800x600": "800 600", "1280x960": "1280 960", "1600x1280": "1600 1280", "1280x800": "1280 800", "640x480": "640 480", "2560x1600": "2560 1600", "1600x1200": "1600 1200", "1280x720": "1280 720", "1280x1024": "1280 1024", "1280x768": "1280 768"},
+        "fullscreen":{ "Yes":"True", "No":"False"},
+        "aa":{"OFF":"None", "FXAA":"fxaa","SMAA":"smaa","CMAA":"cmaa","CSAA":"csaa","TXAA":"txaa","MSAAx2":"msaa2", "MSAAx4":"msaa4","MSAAx8":"msaa8", "MSAAx16":"msaa16"},
+        "shadow":{"OFF":"None", "Hard shadows":"hard", "SSSSM":"ssssm", "VSM":"vsm", "PCF":"pcf", "Volume":"vol"},
+        "filter":{"OFF":"None", "Bloom":"bloom", "HDR":"hdr"},        
+        "difficulty":{"Easy":1, "Normal":2, "Hard":3, "Nightmare":4, "Hell":5, "Pls Stahp!":6, "Nope, Nope, Nope":7},
+        "autosave":{ "Yes":"True", "No":"False"},
+        "subtitles":{ "Yes":"True", "No":"False"}
+        }
+}
