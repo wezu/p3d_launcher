@@ -18,4 +18,4 @@ shadow None
 sound-volume 80
 subtitles False
 voice-volume 100
-win-size 800 600
+win-size 640 480

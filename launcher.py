@@ -143,6 +143,7 @@ class Configer (object):
         return config_dict
                 
     def saveConfig(self, config_file):
+        #print "saving to:", config_file
         with open(config_file, "w") as out_file:
             out_file.write("#auto generated config file\n")
             for key in sorted(self.cfg):
@@ -194,7 +195,7 @@ class Launcher (DirectObject):
         self.app=app            
         #load the config
         self.setup_data=setup_data
-        self.cfg=Configer(self.setup_data['basic']['config_file'])        
+        self.cfg=Configer(path+self.setup_data['basic']['config_file'])        
         
         #setup the window for the launcher
         wp = WindowProperties.getDefault() 
