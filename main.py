@@ -10,6 +10,7 @@ from panda3d.core import *
 from direct.showbase import ShowBase
 from launcher import Launcher
 from collections import OrderedDict
+from direct.stdpy.file import exists
 import json
 import sys
 
@@ -20,22 +21,23 @@ class App():
         #make the path a builtin
         builtins.path=path 
         
-        #the setup dict can be loaded from
-        #-a json file
-        #-a pickeled dict
-        #-xml
-        #-yaml
-        #-any other file that can serialize a python dict
-        #-or it could be here as a python dict
-        #I used object_pairs_hook=OrderedDict to perserve the order of options
-        with open(path+'setup.json') as f:  
-            setup_data=json.load(f, object_pairs_hook=OrderedDict)
-        #if some custom functions are needed you can add them here
-        # and set the func value in the setup data e.g "func":"someCustomFunction(42)"
-        functions={'someCustomFunction':self.someCustomFunction}        
-        
-        #launch the Launcher
-        self.launcher=Launcher(self, setup_data, functions)
+        if exists(path+'setup.json'):
+            #the setup dict can be loaded from
+            #-a json file
+            #-a pickeled dict
+            #-xml
+            #-yaml
+            #-any other file that can serialize a python dict
+            #-or it could be here as a python dict
+            #I used object_pairs_hook=OrderedDict to perserve the order of options
+            with open(path+'setup.json') as f:  
+                setup_data=json.load(f, object_pairs_hook=OrderedDict)
+            #if some custom functions are needed you can add them here
+            # and set the func value in the setup data e.g "func":"someCustomFunction(42)"
+            functions={'someCustomFunction':self.someCustomFunction}        
+            
+            #launch the Launcher
+            self.launcher=Launcher(self, setup_data, functions)
         
         #the Launcher also loads a prc file and puts it all in a nice dict like object
         #print self.launcher.cfg['win-size']

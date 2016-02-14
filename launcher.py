@@ -432,21 +432,24 @@ class Launcher (DirectObject):
                             if not os.path.exists(path+f['target']):
                                 self.files_to_download.append({'url':f['url'], 'target':path+f['target']})
                     #if it's a zipfile we extract
-                    elif is_zipfile(path+last_file):
+                    elif is_zipfile(last_file):
                         #print "extracting"
                         self.update_label['text']+=self.setup_data['basic']['msg']['unzip']
                         self.renderSomeFrames(8)
-                        with ZipFile(path+last_file) as zf:
+                        with ZipFile(last_file) as zf:
                             zf.extractall(path)   
                         #remove zero sized files
                         self.update_label['text']+=self.setup_data['basic']['msg']['clean_up']
                         self.renderSomeFrames(8)                                               
-                        for dirpath, dirs, files in os.walk(path+'.'):
+                        for dirpath, dirs, files in os.walk(path):
                             for file in files: 
-                                full_path = os.path.join(path+dirpath, file)
+                                full_path = Filename(os.path.join(dirpath, file)).toOsSpecific()
                                 #print full_path
                                 if os.stat(full_path).st_size == 0:
                                     os.remove(full_path)
+                    else:
+                        self.update_label['text']+=path+last_file               
+                        self.update_label['text']+="\n - not a zip file!"
                     #remove the last file from the list and get a next one        
                     self.files_to_download.pop(0) 
                     if self.files_to_download:
